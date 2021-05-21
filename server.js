@@ -11,6 +11,10 @@ app.get('/',(req,res) =>{
 res.render('home')
 })
 
+// asserts
+
+app.use(express.static('public'))
+
 //set Template engine
 
 app.use(expressLayout)
