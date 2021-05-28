@@ -5288,20 +5288,19 @@ var addToCart = document.querySelectorAll('.add-to-cart');
 var cartCounter = document.querySelector('#cartCounter');
 
 function updateCart(pizza) {
-  axios__WEBPACK_IMPORTED_MODULE_0___default.a.post('./update-cart', pizza).then(function (res) {
-    console.log(res);
+  axios__WEBPACK_IMPORTED_MODULE_0___default.a.post('/update-cart', pizza).then(function (res) {
     cartCounter.innerText = res.data.totalQty;
     new noty__WEBPACK_IMPORTED_MODULE_1___default.a({
       type: 'success',
       timeout: 1000,
-      text: "Item add to cart",
+      text: 'Item added to cart',
       progressBar: false
     }).show();
   })["catch"](function (err) {
     new noty__WEBPACK_IMPORTED_MODULE_1___default.a({
       type: 'error',
       timeout: 1000,
-      text: "Something went wrong",
+      text: 'Something went wrong',
       progressBar: false
     }).show();
   });
@@ -5312,7 +5311,22 @@ addToCart.forEach(function (btn) {
     var pizza = JSON.parse(btn.dataset.pizza);
     updateCart(pizza);
   });
-});
+}); // // Remove alert message after X seconds
+// const alertMsg = document.querySelector('#success-alert')
+// if(alertMsg) {
+//     setTimeout(() => {
+//         alertMsg.remove()
+//     }, 1000)
+// }
+// Remove alert message after X seconds
+
+var alertMsg = document.querySelector('#success-alert');
+
+if (alertMsg) {
+  setTimeout(function () {
+    alertMsg.remove();
+  }, 2000);
+}
 
 /***/ }),
 
@@ -5334,8 +5348,8 @@ addToCart.forEach(function (btn) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\singh\OneDrive\Desktop\pizza\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\singh\OneDrive\Desktop\pizza\resources\scss\app.scss */"./resources/scss/app.scss");
+__webpack_require__(/*! C:\Users\singh\OneDrive\Desktop\pizza\pizza\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\singh\OneDrive\Desktop\pizza\pizza\resources\scss\app.scss */"./resources/scss/app.scss");
 
 
 /***/ })
