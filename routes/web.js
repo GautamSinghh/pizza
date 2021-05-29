@@ -37,6 +37,8 @@ function initRoutes(app){
 
     app.get('/customer/orders', auth , orderController().index )
 
+    app.get('/customer/orders/:id', auth, orderController().show)
+
     // ---------------------------admin routes-------------------------------------------
 
     app.get('/admin/orders', admin , AdminOrderController().index )
