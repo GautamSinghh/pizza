@@ -43,7 +43,7 @@ if(alertMsg){
     },2000)
 }
 
-initAdmin()
+
 
 // Change order status
 let statuses = document.querySelectorAll('.status_line')
@@ -80,11 +80,17 @@ updateStatus(order);
 //socket
 
 let socket = io()
+initAdmin(socket)
 
 //join
 
 if(order){
     socket.emit('join', `order_${order._id}`)
+}
+let adminAreaPath = window.location.pathname
+console.log(adminAreaPath)
+if(adminAreaPath.includes('admin')){
+    socket.emit('join', 'adminRoom')
 }
 
 socket.on('orderUpdated', (data) => {
